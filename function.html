@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التفاضل و التكامل - الدوال 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        .lesson-meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        h2 {
+            color: #2c3e50;
+            border-right: 4px solid #2c3e50;
+            padding-right: 10px;
+        }
+        .point {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: #e9ecef;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .note {
+            border-right: 3px solid #007bff;
+            padding-right: 10px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lesson-header">
+            <h1>التفاضل و التكامل - الدوال 1</h1>
+            <div class="lesson-meta">
+                <p>التاريخ: 4 فبراير 2025</p>
+                <p>المدة: 10:07 دقائق</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>مقدمة (Introduction)</h2>
+            <p>السلام عليكم. قبل أن ندخل في موضوع الدرس اليوم، خلينا نرجع قليلًا للوراء ونشوف النقاط الأساسية والمواضيع الرئيسية اللي كلمنا عنها في الدروس السابقة.</p>
+        </div>
+
+        <div class="section">
+            <h2>النقاط الأساسية (Basic Points)</h2>
+            
+            <div class="point">
+                احنا بدأنا كلامنا عن التفاضل والتكامل (Calculus) بأن التفاضل والتكامل عبارة عن فرعين رئيسيين:
+                <ul>
+                    <li>التفاضل (Differentiation)</li>
+                    <li>التكامل (Integration)</li>
+                </ul>
+            </div>
+
+            <div class="point">
+                نيوتن (Newton) وليبنيتس (Leibniz) لما اتدوا كلامهم عن الموضعين دول كانوا بيعتمدوا على مفهوم فيه شوية مشاكل، وهو الأعداد المتناهية في الصغر (Infinitesimal Numbers) أو حساب التفاضل المتناهي في الصغر (Infinitesimal Calculus).
+            </div>
+
+            <div class="point">
+                الموضوع ده اتصلح بشكل كبير لما مفهوم النهايات (Limits) قدمه العالم كوشي (Cauchy).
+            </div>
+
+            <div class="note">
+                لذلك، قبل ما نبدأ نشتغل في:
+                <ol>
+                    <li>التفاضل والتكامل (Differentiation and Integration)</li>
+                    <li>لازم نكون اشتغلنا كويس جدًا في النهايات (Limits)</li>
+                    <li>وقبل ما نشتغل في النهايات، قلنا لازم نكون فاهمين يعني إيه دوال (Functions)</li>
+                    <li>وقبل ما نتكلم عن الدوال، بدأنا كلامنا عن الأعداد الحقيقية (Real Numbers)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>الأعداد الحقيقية (Real Numbers)</h2>
+            <div class="point">
+                بدأنا كلامنا عن الأعداد الحقيقية (Real Numbers) بأن اتكلمنا عن خصائص الأعداد (Properties of Numbers).
+            </div>
+            
+            <div class="point">
+                اكتشفنا إن مش كل الأعداد بتتبع نفس الخصائص، وبالتالي قسمنا الأعداد إلى:
+                <ul>
+                    <li>الأعداد الطبيعية (Natural Numbers)</li>
+                    <li>الأعداد الصحيحة غير السالبة (Whole Numbers)</li>
+                    <li>الأعداد الصحيحة (Integers)</li>
+                    <li>الأعداد النسبية (Rational Numbers)</li>
+                    <li>الأعداد غير النسبية (Irrational Numbers)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>الدوال (Functions)</h2>
+            <div class="point">
+                كلمة "Functions" بالعربي تُترجم إلى:
+                <ul>
+                    <li>"دالة" (Function) - مستخدمة أكثر في مصر</li>
+                    <li>"اقتران" (Function) - أكثر شيوعًا في الأردن ودول الشام</li>
+                </ul>
+            </div>
+
+            <div class="point">
+                الدالة (Function) هي أهم مفهوم في الرياضيات الحديثة (Modern Mathematics). لا يوجد فرع من الرياضيات الحديثة لا يعتمد على الدوال.
+            </div>
+
+            <div class="example">
+                مثال بسيط على الدالة (Simple Function Example):
+                <div style="text-align: center; margin: 15px 0;">
+                    2 → 4 (Input → Output)<br>
+                    3 → 9 (Input → Output)<br>
+                    4 → 16 (Input → Output)
+                </div>
+                هنا، الرقم 2 مقترن بالرقم 4، والرقم 3 مقترن بالرقم 9، وهكذا.
+            </div>
+
+            <div class="point">
+                أمثلة من الحياة اليومية (Real-life Examples):
+                <ul>
+                    <li>سرعة السيارة (Car Speed) تعتمد على كمية البنزين (Fuel Amount)</li>
+                    <li>عدد السكان (Population) يعتمد على عوامل مثل الغذاء (Food) والماء (Water)</li>
+                    <li>السرعة القصوى للشاحنة (Truck Maximum Speed) تعتمد على حمولتها (Load Weight)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>الدوال في حياتنا اليومية</h2>
+            <div class="point">
+                <p>الأحداث في الكون لا تحدث بشكل منعزل، وهذا ما تمثله الدوال:</p>
+                <div class="example">
+                    <h4>مثال 1: السيارة والسرعة</h4>
+                    <ul>
+                        <li>كمية البنزين → سرعة السيارة</li>
+                        <li>كلما زادت كمية البنزين، زادت السرعة</li>
+                    </ul>
+                </div>
+
+                <div class="example">
+                    <h4>مثال 2: الشاحنة والحمولة</h4>
+                    <ul>
+                        <li>الشاحنة فارغة → السرعة القصوى عالية</li>
+                        <li>زيادة الحمولة → تقل السرعة القصوى</li>
+                        <li>الحمولة مقترنة بالسرعة القصوى للشاحنة</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="note">
+                <p>الدوال تساعدنا في:</p>
+                <ul>
+                    <li>دراسة الأحداث المرتبطة ببعضها بشكل رياضي بسيط</li>
+                    <li>فهم العلاقات بين المتغيرات المختلفة</li>
+                    <li>التنبؤ بالنتائج بناءً على المدخلات</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>أهمية الدوال في الرياضيات</h2>
+            <div class="point">
+                <p>كما قال مايكل سبيفاك (Michael Spivak) في كتابه:</p>
+                <blockquote style="background-color: #f8f9fa; padding: 15px; border-right: 4px solid #007bff; margin: 10px 0;">
+                    "بلا شك المفهوم الأهم في كل الرياضيات (Mathematics) هو مفهوم الدوال (Functions)."
+                </blockquote>
+            </div>
+
+            <div class="point">
+                <p>أهمية الدوال تتجلى في:</p>
+                <ul>
+                    <li>مركز الدراسة والبحث في الرياضيات الحديثة</li>
+                    <li>أساس في علوم أخرى مثل الفيزياء (Physics)</li>
+                    <li>لا يمكن دراسة أي فرع من فروع الرياضيات الحديثة بدون فهم الدوال</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>العلاقة بين الدوال والتفاضل والتكامل</h2>
+            <div class="point">
+                <p>رغم أن الدوال والتفاضل والتكامل ظهرا في نفس الفترة تقريباً:</p>
+                <ul>
+                    <li>1665: بدأ نيوتن كتابة ملاحظاته في التفاضل والتكامل</li>
+                    <li>1673: أول ظهور لمصطلح "Function" على يد جوتفريد لايبنيز</li>
+                    <li>1675: بدأ لايبنيز كتابة ملاحظاته في التفاضل والتكامل</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                رغم أن العلماء في ذلك الوقت لم يدركوا الارتباط الوثيق بين الدوال والتفاضل والتكامل، إلا أن هذا الارتباط أصبح واضحاً في القرن الثامن عشر.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>نبذة تاريخية</h2>
+            <div class="point">
+                <ul>
+                    <li>تاريخيًا، الـ Functions بدأت كمفهوم في القرن الرابع عشر</li>
+                    <li>أول مرة تم ذكر كلمة "Function" كانت في عام 1673 بواسطة جوتفريد لايبنيز</li>
+                    <li>في نفس الفترة الزمنية، كان نيوتن وليبنيز يعملان على تطوير حساب التفاضل والتكامل (Calculus)</li>
+                    <li>العلاقة بين الـ Functions والـ Calculus أصبحت واضحة بشكل أكبر في القرن الثامن عشر</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effect to points
+        document.querySelectorAll('.point').forEach(point => {
+            point.addEventListener('mouseenter', () => {
+                point.style.backgroundColor = '#e9ecef';
+            });
+            point.addEventListener('mouseleave', () => {
+                point.style.backgroundColor = '#f8f9fa';
+            });
+        });
+
+        // Add hover effect to examples
+        document.querySelectorAll('.example').forEach(example => {
+            example.addEventListener('mouseenter', () => {
+                example.style.backgroundColor = '#dee2e6';
+            });
+            example.addEventListener('mouseleave', () => {
+                example.style.backgroundColor = '#e9ecef';
+            });
+        });
+    </script>
+</body>
+</html>
